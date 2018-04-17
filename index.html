@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let obj = {}
+    let name = 'jianwei'
+    obj.age = 29
+    let Body = document.getElementsByTagName('body')[0]
+    let Phtml = document.createElement('p')
+    Phtml.innerHTML = name
+    Body.appendChild(Phtml)
+    Object.defineProperty(obj, 'name', {
+      // value: '男',
+      configurable: true, // 可配置对象，删除属性
+      // writable: false, // 可修改对象， 可写 (不允许同一个属性存在两个及以上的存取访问器配置，所以writable或者value不能与get/set同时配置，否则报错。)
+      enumerable: true, // 可枚举
+      get() {
+        return name
+      },
+      set(val) {
+        console.log(val)
+        name = val
+      }
+    })
+    // console.log(obj)
+    // for (let item in obj) {
+    //   console.log(item)
+    // }
+    obj.name = 'xiaozhen'
+    console.log(name)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <ul id="main">
+      <li>节点一</li>
+      <li>节点二</li>
+      <li>节点三</li>
+    </ul>
+  </div>
+  <div id="app">
+    <ul>
+      <li>节点四</li>
+    </ul>
+  </div>
+  <script>
+    let FirstLi = document.getElementsByTagName('li')[0];
+    let App = document.getElementById('app');
+    let Main = document.getElementById('main');
+    let AppFirstLi = App.getElementsByTagName('li')[0];
+    // console.log(AppFirstLi);
+    // 有referenceElement  插入在 referenceElement 之前
+    Main.insertBefore(AppFirstLi, FirstLi);
+    Main.insertBefore(AppFirstLi, null);
+    // console.log(FirstLi.nodeType);
+    // 创建文档碎片
+    // let Frag = document.createDocumentFragment() 
+    // node type 11
+    // console.log(Frag.nodeType) 
+    // Frag.appendChild(FirstLi)
+    // App.appendChild(Frag)
+    // App.insertBefore(Frag, null) // 第一个参数 newElement , 第二个参数 referenceElement(参考向如果为空 则表示 插入到父元素最后)
+  </script>
+  <!-- <script src="./js/mvvm.js"></script>
+  <script>
+    let App = new Mvvm({
+      el: '#app',
+      data: {
+        name: 'jianwei',
+        age: 29,
+        interests: {
+          other: {
+            interests: 'playGame',
+            worker: 'iT'
+          }
+        }
+      }
+    })
+    console.log(App.name)
+  </script> -->
+</body>
+
+</html>
